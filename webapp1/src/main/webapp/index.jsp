@@ -14,13 +14,19 @@
         <div class="colorcontainer"></div>
         <div class="formcontainer">
                 <div class="heading" align="center">VChat</div>
-                <div class="formheading">Sign in</div>
-                <p>Please enter your phone number</p>
+                <div class="formheading">Welcome!</div>
+                <p>Please enter username and password.</p>
                 <form name="signupform" action="" method="post">
-                        <input type="text" class="form-control" id="mobilenumber" name="mobile" required placeholder="Phone number">
-                        <button type="submit" class="signupbutton">
-                                <div class="btntxt">Next</div>
-                        </button>
+                        <input type="text" id="username" name="username" required placeholder="Username">
+                        <input type="password" id="password" name="password" required placeholder="Password">
+                        <div class="buttoncontainer">
+                                <button type="submit" class="signinbutton">
+                                        <div class="btntxt">Sign in</div>
+                                </button>
+                                <button type="submit" class="signupbutton">
+                                        <div class="btntxt">Sign up</div>
+                                </button>
+                        </div>
                 </form>
         </div>
         <div class="foot">Welcome to the official VChat web-client.</div>
