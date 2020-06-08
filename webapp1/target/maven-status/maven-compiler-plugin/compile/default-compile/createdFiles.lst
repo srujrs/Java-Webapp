@@ -1,1 +1,5 @@
+com\mycompany\data\loginDetails.class
+com\mycompany\servlets\md5.class
+com\mycompany\servlets\signUp.class
 com\mycompany\servlets\login.class
+com\mycompany\data\DatabaseConnection.class

@@ -17,13 +17,13 @@
                 <div class="formheading">Welcome!</div>
                 <p>Please enter username and password.</p>
                 <form name="signupform" action="login" method="post">
-                        <input type="text" id="username" name="username" required placeholder="Username">
+                    <input type="text" id="username" name="username" required placeholder="Username">
                         <input type="password" id="password" name="password" required placeholder="Password">
                         <div class="buttoncontainer">
-                                <button type="submit" class="signinbutton">
+                                <button type="submit" class="signinbutton" name="choice" value="signin">
                                         <div class="btntxt">Sign in</div>
                                 </button>
-                                <button type="submit" class="signupbutton">
+                            <button type="submit" class="signupbutton" name="choice" value="signup">
                                         <div class="btntxt">Sign up</div>
                                 </button>
                         </div>

@@ -17,10 +17,13 @@ public class login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String _username = request.getParameter("username");
             String _password = request.getParameter("password");
+            String _choice = request.getParameter("choice");
+            if(_choice.equals("signup")) response.sendRedirect("signup.jsp");
 
             loginDetails ld = new loginDetails(_username,_password);
             if(ld.getUserFound()) response.sendRedirect("welcome.jsp");
             else if(ld.getAdminFound()) response.sendRedirect("welcome.jsp");
+            else response.sendRedirect("index.jsp");
             
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException("Login failed", ex);
