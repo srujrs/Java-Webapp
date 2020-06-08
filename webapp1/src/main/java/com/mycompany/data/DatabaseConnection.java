@@ -1,4 +1,4 @@
-package com.mycompany.servlets;
+package com.mycompany.data;
 
 import java.sql.Connection; 
 import java.sql.DriverManager; 
