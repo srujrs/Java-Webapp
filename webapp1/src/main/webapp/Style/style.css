@@ -74,17 +74,18 @@ input[type=text], input[type=password] {
         justify-content: space-around;
 }
 
-.formcontainer button {
+.formcontainer button, .dummybutton {
         display: block;
         margin: 40px auto;
         margin-top: 30px;
-        width: 184px;
+	width: 184px;
+	text-align: center;
         border-radius: 5px;
         background-color: rgb(0,128,255);
         border: 0;
 }
 
-.formcontainer button:hover {
+.formcontainer button:hover, .dummybutton:hover {
         background-color: rgba(0,128,255,0.8);
 }
 
@@ -92,6 +93,20 @@ input[type=text], input[type=password] {
         font-size: 20pt;
         color: #ffffff;
         margin: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#unerror {
+	color: red;
+	text-align: center;
+}
+
+#passerror {
+	color: red;
+	text-align: center;
 }
 
 .foot {
