@@ -109,6 +109,16 @@ a {
 	text-align: center;
 }
 
+#emailerror {
+        color: red;
+        text-align: center;
+}
+
+#cpasserror {
+        color: red;
+        text-align: center;
+}
+
 .foot {
         color: rgb(0,128,255);
         display: block;
