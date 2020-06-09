@@ -1,7 +1,10 @@
 package com.mycompany.servlets;
 import java.io.*;
 
-//import com.chronicles.servlet.md5;
+import com.mycompany.data.signUpDetails;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,17 +14,27 @@ import javax.servlet.annotation.WebServlet;
 public class signUp extends HttpServlet {
 
         @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-
-            String _username = request.getParameter("username");
-            String _email = request.getParameter("email");
-            String _passwd = request.getParameter("password");
+            String pageRedirect = null;
+            
             String _choice = request.getParameter("choice");
-            if(_choice.equals("signin")) response.sendRedirect("index.jsp");
-
-//            String salted = _username+"chatWith"+_passwd+"Me";
-//            String md5hash = md5.getMd5(salted);
+            if(_choice.equals("signin")) pageRedirect = "index.jsp";
+            else {
+                try {
+                    String _username = request.getParameter("username");
+                    String _email = request.getParameter("email");
+                    String _password = request.getParameter("password");
+                    signUpDetails sd = new signUpDetails(_username,_email,_password);
+                    pageRedirect = "index.jsp";
+                } 
+                catch (ClassNotFoundException ex) {
+                    Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            response.sendRedirect(pageRedirect);
+           
 	}	
 
 }

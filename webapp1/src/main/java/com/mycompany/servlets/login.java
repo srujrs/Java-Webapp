@@ -15,15 +15,20 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String redirectPage = null;
             String _username = request.getParameter("username");
             String _password = request.getParameter("password");
             String _choice = request.getParameter("choice");
-            if(_choice.equals("signup")) response.sendRedirect("signup.jsp");
-
-            loginDetails ld = new loginDetails(_username,_password);
-            if(ld.getUserFound()) response.sendRedirect("welcome.jsp");
-            else if(ld.getAdminFound()) response.sendRedirect("welcome.jsp");
-            else response.sendRedirect("index.jsp");
+            
+            if(_choice.equals("signup")) redirectPage = "signup.jsp";
+            else {
+                loginDetails ld = new loginDetails(_username,_password);
+                if(ld.getUserFound()) redirectPage = "welcome.jsp";
+                else if(ld.getAdminFound()) redirectPage = "welcome.jsp";
+                else redirectPage = "index.jsp";
+            }
+            
+            response.sendRedirect(redirectPage);
             
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException("Login failed", ex);

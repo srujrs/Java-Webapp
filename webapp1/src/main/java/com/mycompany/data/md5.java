@@ -1,4 +1,5 @@
-package com.mycompany.servlets;
+package com.mycompany.data;
+
 import java.math.BigInteger; 
 import java.security.MessageDigest; 
 import java.security.NoSuchAlgorithmException; 
