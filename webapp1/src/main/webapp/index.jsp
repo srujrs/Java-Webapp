@@ -72,7 +72,7 @@
                                 <button type="submit" class="signinbutton" value="signin">
                                         <div class="btntxt">Sign in</div>
                                 </button>
-                                <a href="" class="dummybutton">
+                                <a href="signup.jsp" class="dummybutton">
                                         <div class="btntxt">Sign up</div>
 				</a>
                         </div>
