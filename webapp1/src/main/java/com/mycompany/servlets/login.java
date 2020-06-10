@@ -18,15 +18,11 @@ public class login extends HttpServlet {
             String redirectPage = null;
             String _username = request.getParameter("username");
             String _password = request.getParameter("password");
-            String _choice = request.getParameter("choice");
             
-            if(_choice.equals("signup")) redirectPage = "signup.jsp";
-            else {
-                loginDetails ld = new loginDetails(_username,_password);
-                if(ld.getUserFound()) redirectPage = "welcome.jsp";
-                else if(ld.getAdminFound()) redirectPage = "welcome.jsp";
-                else redirectPage = "index.jsp";
-            }
+            loginDetails ld = new loginDetails(_username,_password);
+            if(ld.getUserFound()) redirectPage = "welcome.jsp";
+            else if(ld.getAdminFound()) redirectPage = "welcome.jsp";
+            else redirectPage = "index.jsp";
             
             response.sendRedirect(redirectPage);
             
