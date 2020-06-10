@@ -21,35 +21,10 @@
 		}
 		function checkpassword()
 		{
-			if(document.signupform.password.value.length < 8)
-				document.getElementById("passerror").innerHTML = "Password must be atleast 8characters long";
-			else
-			{
-				var f1 = 0;
-				var f2 = 0;
-				var f3 = 0;
-				var f4 = 0;
-				var pass = document.signupform.password.value;
-				for(let i = 0 ; i < pass.length ; ++i)
-				{
-					if(pass[i] > 'a' && pass[i] < 'z')
-						f1 = 1;
-					else if(pass[i] > 'A' && pass[i] < 'Z')
-						f2 = 1;
-					else if(pass[i] > '0' && pass[i] < '9')
-						f3 = 1;
-					else
-						f4 = 1;
-				}
-				if(f1 == 0)
-					document.getElementById("passerror").innerHTML = "Password must contain a lowercase alphabet";
-				else if(f2 == 0)
-					document.getElementById("passerror").innerHTML = "Password must contain a uppercase alphabet";
-				else if(f3 == 0)
-					document.getElementById("passerror").innerHTML = "Password must contain a numeric character";
-				else if(f4 == 0)
-					document.getElementById("passerror").innerHTML = "Password must contain a special character";
-			}
+			if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(document.signupform.password.value));
+                        else
+                                document.getElementById("passerror").innerHTML = "Invalid Password";
+			
 		}
 		function resetpasserror()
 		{
@@ -64,9 +39,15 @@
                 <div class="formheading">Welcome!</div>
                 <p>Please enter username and password.</p>
                 <form name="signupform" action="login" method="post">
-                        <input type="text" id="username" name="username" required placeholder="Username" onblur="checkusername();" onclick="resetunerror();">
+                        <div class="tooltip">
+                                <input type="text" id="username" name="username" required placeholder="Username" onblur="checkusername();" onclick="resetunerror();">
+                                <span class="tooltiptext">Username must contain at least 6characters.</span>
+                        </div>
                         <div id="unerror"></div>
-                        <input type="password" id="password" name="password" required placeholder="Password" onblur="checkpassword();" onclick="resetpasserror();">
+                        <div class="tooltip">
+                                <input type="password" id="password" name="password" required placeholder="Password" onblur="checkpassword();" onclick="resetpasserror();">
+                                <span class="tooltiptext">At least 8characters, at least one upper and lower case alphabet, at least one number and at least one special character.</span>
+                        </div>
                         <div id="passerror"></div>
                         <div class="buttoncontainer">
                                 <button type="submit" class="signinbutton" value="signin">
