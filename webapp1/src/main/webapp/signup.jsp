@@ -21,8 +21,9 @@
 		}
                 function checkemail()
 		{
-			if(document.signupform.email.value.length < 6)
-				document.getElementById("emailerror").innerHTML = "Email must be atleast 6characters long";
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.signupform.email.value));
+                        else
+                                document.getElementById("emailerror").innerHTML = "Invalid email ID";
 		}
 		function resetemailerror()
 		{
