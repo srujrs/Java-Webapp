@@ -1,4 +1,4 @@
-package com.mycompany.data;
+package com.mycompany.servlets;
 
 import java.math.BigInteger; 
 import java.security.MessageDigest; 

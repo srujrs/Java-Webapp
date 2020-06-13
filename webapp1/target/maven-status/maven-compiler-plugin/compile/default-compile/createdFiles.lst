@@ -1,8 +1,12 @@
+com\mycompany\servlets\reload.class
+com\mycompany\data\chat.class
 com\mycompany\data\message.class
 com\mycompany\servlets\login.class
+com\mycompany\data\chatreload.class
 com\mycompany\data\loginDetails.class
 com\mycompany\data\signUpDetails.class
+com\mycompany\servlets\chatstore.class
+com\mycompany\servlets\md5.class
 com\mycompany\servlets\signUp.class
 com\mycompany\data\DatabaseConnection.class
 com\mycompany\data\getGroupChat.class
-com\mycompany\data\md5.class

@@ -1,5 +1,6 @@
 package com.mycompany.data;
 
+import com.mycompany.servlets.md5;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;

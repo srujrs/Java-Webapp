@@ -1,6 +1,7 @@
 body{
-  background-color: #eee;
+  background-color: #dee;
   font-family: sans-serif;
+  scrollbar-width: none;
 }
 .cont{
   height: 90vh;
@@ -9,6 +10,7 @@ body{
   margin: 5vh auto;
   padding: 0;
   border-radius: 25px;
+  overflow: hidden;
 }
 .personal-panel{
   height: 90vh;
@@ -22,13 +24,22 @@ body{
 .profile-image{
   height: 50px;
   width: 50px;
-  border-radius: 25px;
+  border-radius: 30px;
+  border: 1px white solid;
   margin: 5px;
   background-color: #adcdff;
   font-size: 25px;
-  line-height: 50px;
+  line-height: 48px;
   text-align: center;
   color: #fff;
+  box-shadow: 0px 0px 6px 0px rgb(180, 180, 220);
+}
+.small{
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  font-size: 18px;
+  line-height: 36px;
 }
 .profile-name{
   font-weight: 700;
@@ -70,6 +81,37 @@ li{
   border-color: #0a68ff;
   border-width: 2px;
 }
+.group-drawer{
+  width: 90%;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 7px 5px -3px rgb(200, 200, 200);
+}
+.info{
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  width: 80%;
+}
+.info p{
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+  text-align: inherit;
+}
+.panel-detail{
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 3px 7px -3px rgb(200, 200, 200);
+  padding: 10px 20px;
+}
 .friend-box{
   width: 100%;
   display: flex;
@@ -81,56 +123,27 @@ li{
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-.friend-drawer{
-  width: 90%;
-  background-color: #fff;
-  padding: 5px 10px;
-  display: flex;
-  vertical-align: baseline;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-.text{
-  vertical-align: middle;
-  padding: 10px;
-  width: 65%;
-}
-.text p{
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .chat-panel{
   height: 90vh;
-  padding: 20px 20px;
+  padding-bottom: 10px;
   display: flex;
   background-color: #fff;
   flex-direction: column;
+  border-left: 1px #ddd solid;
   border-radius: 0 25px 25px 0;
-}
-.chat-panel h4{
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.underline{
-  height: 5px;
-  width: 40px;
-  border-radius: 5px;
-  background-color: #0a68ff;
 }
 .chat-box{
     flex-grow: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 20px;
 }
 .message{
-  max-width: 45%;
-  padding: 10px 15px;
+  max-width: 60%;
+  padding: 5px 15px;
+  margin: 5px;
 }
 .left{
   align-self: flex-start;
@@ -140,7 +153,13 @@ li{
 .right{
   align-self: flex-end;
   border-radius: 10px 10px 0 10px;
-  background-color: #adcdff;
+  background-color: #abcdef;
+}
+.underline{
+  height: 5px;
+  width: 15%;
+  border-radius: 5px;
+  background-color: #0a68ff;
 }
 .message-box{
   height: 50px;
@@ -167,13 +186,17 @@ li{
   font-size: 24px;
   margin: 5PX;
 }
-
-
-
-.friend-details-panel{
+.members-panel{
+  border-left: 1px #ddd solid;
+  border-radius: 0 25px 25px 0;
+  background-color: #fff;
 }
-
-.friend-drawer:hover{
+.member{
+  background-color: #fff;
+  border-bottom: 1px #eee solid;
+  padding: 5px;
+}
+.group-drawer:hover{
   background-color: #74b9ff;
   color: white;
   cursor: pointer;
@@ -194,6 +217,17 @@ i:hover{
 @media (max-width: 767.98px) {
   .contacts-panel{
     border-radius: 0 0 25px 25px;
+  }
+  .group-drawer{
+    flex-direction: row;
+  }
+  .info{
+    text-align: left;
+  }
+  .info p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .chat-panel{
     display: none;
@@ -220,13 +254,7 @@ i:hover{
   }
 }
 @media (max-width: 1199.98px) {
-  .profile-image{
-    height: 40px;
-    width: 40px;
-    font-size: 20px;
-    line-height: 40px;
-  }
-  .text{
-    padding: 5px;
+  .members-panel{
+    display: none;
   }
 }

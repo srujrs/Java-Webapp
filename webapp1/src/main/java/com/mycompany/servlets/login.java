@@ -1,5 +1,4 @@
 package com.mycompany.servlets;
-import com.mycompany.data.getGroupChat;
 import com.mycompany.data.loginDetails;
 
 import java.io.IOException;
@@ -9,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class login extends HttpServlet {
     @Override
@@ -16,26 +16,26 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String redirectPage = null;
             String _username = request.getParameter("username");
             String _password = request.getParameter("password");
-            
-            loginDetails ld = new loginDetails(_username,_password);
-            if(ld.getUserFound()) {
-                redirectPage = "welcomeUser.jsp";
-                request.setAttribute("uname", _username);
-                request.getRequestDispatcher("welcomeUser.jsp").forward(request, response);
-                
-                getGroupChat chat = new getGroupChat();
-                
-                request.setAttribute("messages", chat.getDetails());
-                request.getRequestDispatcher("welcomeUser.jsp").forward(request, response);
-               
+            String _choice = request.getParameter("choice");
+            if(_choice.equals("signup")) response.sendRedirect("signup.jsp");
+            else{
+                loginDetails ld = new loginDetails(_username,_password);
+                if(ld.getUserFound()){ 
+                    response.sendRedirect("welcomepage.jsp");
+                    HttpSession session=request.getSession();
+                    session.setAttribute("username",_username);
+                }
+                else if(ld.getAdminFound()) {
+                 HttpSession session=request.getSession();
+                 session.setAttribute("username",_username);
+                response.sendRedirect("welcome.jsp");
+
+                }
+                else response.sendRedirect("index.jsp");
             }
-            else if(ld.getAdminFound()) redirectPage = "welcome.jsp";
-            else redirectPage = "index.jsp";
             
-            response.sendRedirect(redirectPage);
             
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException("Login failed", ex);
@@ -49,4 +49,5 @@ public class login extends HttpServlet {
         doGet(request, response);
     }
 
+  
 }
