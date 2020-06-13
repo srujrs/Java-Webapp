@@ -1,4 +1,5 @@
 package com.mycompany.servlets;
+import com.mycompany.data.getGroupChat;
 import com.mycompany.data.loginDetails;
 
 import java.io.IOException;
@@ -20,7 +21,17 @@ public class login extends HttpServlet {
             String _password = request.getParameter("password");
             
             loginDetails ld = new loginDetails(_username,_password);
-            if(ld.getUserFound()) redirectPage = "welcome.jsp";
+            if(ld.getUserFound()) {
+                redirectPage = "welcomeUser.jsp";
+                request.setAttribute("uname", _username);
+                request.getRequestDispatcher("welcomeUser.jsp").forward(request, response);
+                
+                getGroupChat chat = new getGroupChat();
+                
+                request.setAttribute("messages", chat.getDetails());
+                request.getRequestDispatcher("welcomeUser.jsp").forward(request, response);
+               
+            }
             else if(ld.getAdminFound()) redirectPage = "welcome.jsp";
             else redirectPage = "index.jsp";
             
@@ -38,5 +49,4 @@ public class login extends HttpServlet {
         doGet(request, response);
     }
 
-  
 }

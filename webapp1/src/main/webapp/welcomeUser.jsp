@@ -1,4 +1,8 @@
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.mycompany.data.message"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -18,7 +22,7 @@
         <div class="col-md-12 col-lg-1 border-right">
           <div class="personal-panel">
               <img src="Style/Tom.jpg" alt="" class="profile-image">
-              <h6 class="profile-name">Peter Parker</h6>
+              <h6 class="profile-name">${uname}</h6>
               <ul class="list-unstyled" style="margin:20px auto;">
                 <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">chat</i></li>
                 <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">person</i></li>
@@ -33,7 +37,7 @@
               <input type="text" name="contacts" value="" placeholder="Search">
               <i class="material-icons" style="color: gray;vertical-align: middle;">search</i>
             </div>
-              <div class="friend-box">
+              <div class="friend-box" id="groups">
                 <div class="friend-drawer" onclick="openchat()">
                   <div class="profile-image">T</div>
                   <div class="text">
@@ -42,72 +46,21 @@
                   </div>
                   <div class="time">13:20</div>
                 </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">S</div>
-                  <div class="text">
-                    <h6 class="m-0">Steve Rogers</h6>
-                    <p>I can do this all day...</p>
-                  </div>
-                  <div class="time">15:15</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">C</div>
-                  <div class="text">
-                    <h6 class="m-0">Thor</h6>
-                    <p>I choose to run towerds my problem and not away from them...</p>
-                  </div>
-                  <div class="time">15:20</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">P</div>
-                  <div class="text">
-                    <h6 class="m-0">Peter Parker</h6>
-                    <p>With great power comes great responsibility...</p>
-                  </div>
-                  <div class="time">16:00</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">B</div>
-                  <div class="text">
-                    <h6 class="m-0">Bruce Banner</h6>
-                    <p>Hulk smash...</p>
-                  </div>
-                  <div class="time">16:30</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">C</div>
-                  <div class="text">
-                    <h6 class="m-0">Clint Barton</h6>
-                    <p>If you step out of the door, you are an Avenger...</p>
-                  </div>
-                  <div class="time">16:31</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">N</div>
-                  <div class="text">
-                    <h6 class="m-0">Natasha Romanoof</h6>
-                    <p>See you in a minute..</p>
-                  </div>
-                  <div class="time">16:45</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">W</div>
-                  <div class="text">
-                    <h6 class="m-0">Wanda Maximoof</h6>
-                    <p>You took everything from me...</p>
-                  </div>
-                  <div class="time">17:04</div>
-                </div>
-                <div class="friend-drawer" onclick="openchat()">
-                  <div class="profile-image">T</div>
-                  <div class="text">
-                    <h6 class="m-0">Thanos</h6>
-                    <p>I am inevitable...</p>
-                  </div>
-                  <div class="time float-right">18:00</div>
-                </div>
-              </div>
           </div>
+              <script>
+                  let element = document.createElement("div");
+                    element.innerHTML = "<div class='friend-drawer' onclick='openchat()'><div class='profile-image'>T</div><div class='text'><h6 class='m-0'>" + 
+                                    <% List<message> messages = (ArrayList<message>)request.getAttribute("messages");
+                                    out.print(messages.get(0).getGroupName());
+                          %> + "</h6> <p>" + <% 
+                                    out.print(messages.get(messages.size() - 1).getContent());
+                          %> + "</p></div><div class='time'>"+ <% 
+                                    out.print(messages.get(messages.size() - 1).getTimeStamp());
+                          %> +
+                  "</div></div>";
+                  let parent = document.getElementById("groups");
+                parent.appendChild(element);
+            </script>
         </div>
         <div class="col-md-6 col-lg-7 border-right">
           <div class="chat-panel">

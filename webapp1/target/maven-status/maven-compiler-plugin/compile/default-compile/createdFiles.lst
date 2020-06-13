@@ -1,6 +1,8 @@
+com\mycompany\data\message.class
+com\mycompany\servlets\login.class
 com\mycompany\data\loginDetails.class
 com\mycompany\data\signUpDetails.class
 com\mycompany\servlets\signUp.class
-com\mycompany\servlets\login.class
 com\mycompany\data\DatabaseConnection.class
+com\mycompany\data\getGroupChat.class
 com\mycompany\data\md5.class
