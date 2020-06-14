@@ -2,12 +2,12 @@ function addText()
 {
     var username = document.getElementById('u').value;
     var msg = document.getElementById('h').value;
-    olist = document.getElementById('list');
+    /*olist = document.getElementById('list');
     op = document.createElement('p');
     op.innerHTML = username + "- <g>" + msg + "</g>";
     ocontent = document.getElementById('content');
     ocontent.appendChild(op);             //Add new line on click
-    olist.scrollTop = olist.scrollHeight; //Adjust Height
+    olist.scrollTop = olist.scrollHeight; //Adjust Height*/
     document.getElementById('h').value = '';
     var xmlhttp;
     if (window.XMLHttpRequest)
