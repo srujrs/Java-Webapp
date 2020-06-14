@@ -3,12 +3,12 @@ function addText()
 {
     var username = document.getElementById('u').value;
     var msg = document.getElementById('h').value;
-    olist = document.getElementById('list');
-//    op = document.createElement('p');
-//    op.innerHTML = username + "- <g>" + msg + "</g>";
-//    ocontent = document.getElementById('content');
-//    ocontent.appendChild(op);             //Add new line on click
-//    olist.scrollTop = olist.scrollHeight; //Adjust Height
+    /*olist = document.getElementById('list');
+    op = document.createElement('p');
+    op.innerHTML = username + "- <g>" + msg + "</g>";
+    ocontent = document.getElementById('content');
+    ocontent.appendChild(op);             //Add new line on click
+    olist.scrollTop = olist.scrollHeight; //Adjust Height*/
     document.getElementById('h').value = '';
     if(selectedGroup === null || selectedGroup === ""){
         console.log("No group selected");
@@ -67,7 +67,7 @@ function reloaddata()
         };
         xmlhttp.send(null);
     }
-    
+
 }
 function showGroups(){
     var username = document.getElementById('u').value;
@@ -121,4 +121,41 @@ function displayChat(event){
         }
     };
     xmlhttp.send(null);
+}
+function newgroup()
+{
+    var username = document.getElementById('u').value;
+    var msg = document.getElementById('h').value;
+    /*olist = document.getElementById('list');
+    op = document.createElement('p');
+    op.innerHTML = username + "- <g>" + msg + "</g>";
+    ocontent = document.getElementById('content');
+    ocontent.appendChild(op);             //Add new line on click
+    olist.scrollTop = olist.scrollHeight; //Adjust Height*/
+    document.getElementById('h').value = '';
+    if(selectedGroup === null || selectedGroup === ""){
+        console.log("No group selected");
+    }else{
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("POST", "chatstore?uname=" + username + "&msg=" + msg + "&id=" + selectedGroup, true);
+
+        xmlhttp.onreadystatechange = function()
+        {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+            {
+
+                document.getElementById("result").innerHTML = 'sent';
+                document.getElementById("result").innerHTML = '';
+            }
+        };
+        xmlhttp.send(null);
+    }
 }

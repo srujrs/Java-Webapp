@@ -161,6 +161,52 @@ a {
         margin-bottom: 20px;
 }
 
+.adminform {
+        width: 80vw;
+}
+
+table {
+        width: 60vw;
+        margin: 20px auto;
+}
+
+th, td {
+        border: 1px solid black;
+        width: 20vw;
+        padding: 10px;
+        border-radius: 5px;
+}
+
+th {
+        font-size: 20pt;
+        color: #ffffff;
+        background-color: dodgerblue;
+}
+
+td {
+        font-size: 17pt;
+}
+
+.deletebutton {
+        display: block;
+        margin: auto;
+        width: 184px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: rgb(0,128,255);
+}
+
+.deletebutton:hover {
+        background-color: rgba(0,128,255,0.8);
+}
+
+.deletebtntxt {
+        font-size: 17pt;
+        color: #ffffff;
+        margin: 10px;
+}
+
 @media only screen and (max-width: 700px) {
         .formcontainer{
                 width: 80vw;
@@ -207,6 +253,29 @@ a {
         .foot {
                 font-size: 12pt;
                 margin-top: 10px;
+        }
+        
+        th {
+                font-size: 15pt;
+        }
+        
+        td {
+                font-size: 13pt;
+        }
+        
+        .deletebutton {
+                width: 100px;
+                padding: 5px;
+        }
+        
+        .deletebtntxt {
+                font-size: 12pt;
+                color: #ffffff;
+                margin: 10px;
+        }
+        
+        .adminform {
+                width: 90vw;
         }
 }
 

@@ -14,6 +14,51 @@
         
   %>
 <html>
+    <script type="text/javascript">
+    var x = window.matchMedia("(max-width: 767.98px)");
+    var y = window.matchMedia("(max-width: 1199)");
+      function openchat() {
+        if(x.matches){
+          document.getElementsByClassName('contacts-panel')[0].style.display = "none";
+          document.getElementsByClassName('chat-panel')[0].style.display = "flex";
+          document.getElementById('back-arrow').style.display = "inline-block";
+          document.getElementById('burg').style.display = "inline-block";
+        }
+      }
+      window.addEventListener("resize", () =>{
+        if(window.innerWidth > 765){
+          if(document.getElementsByClassName('contacts-panel')[0].style.display === "none")
+            {document.getElementsByClassName('contacts-panel')[0].style.display = "flex";}
+            if(document.getElementsByClassName('chat-panel')[0].style.display === "none")
+              {document.getElementsByClassName('chat-panel')[0].style.display = "flex";}
+          document.getElementById('back-arrow').style.display = "none";
+          document.getElementById('burg').style.display = "none";
+        }
+      });
+      function opencontacts(){
+        if(x.matches){
+          document.getElementsByClassName('contacts-panel')[0].style.display = "flex";
+          document.getElementsByClassName('chat-panel')[0].style.display = "none";
+        }
+      }
+      function openmembers(){
+          if(x.matches){
+            document.getElementsByClassName('members-panel')[0].style.display = "flex";
+            document.getElementsByClassName('chat-panel')[0].style.display = "none";
+          }
+      }
+      var links = document.getElementsByClassName("link");
+      for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          if (current.length > 0) {
+            current[0].className = current[0].className.replace(" active", "");
+          }
+          this.className += " active";
+        });
+      }
+
+  </script>
     <head>
         <meta charset="utf-8">
         <title>Welcome Page</title>
@@ -41,6 +86,7 @@
                 <li class="link" onclick="showGroups()"><i class="material-icons" style="font-size: 24px;margin:13px;">group_add</i></li>
                 <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">folder</i></li>
                 <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">settings</i></li>
+                <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;"><a href="logout.jsp">logouts</a></i></li>
               </ul>
           </div>
         </div>
@@ -56,15 +102,21 @@
               <div id="groups" class="friend-box">
                 
               </div>
-<!--              <div class="create-group">
+              <div class="create-group">
               <div class="heading">Create New Group</div>
-              <form class="new-group-form" action="" method="post">
+              <form class="new-group-form" method="post" action="newgroup">
+<!--                //<div id="admin" name="admin" style="display: none"><%=uname%></div>-->
                 <h6>Name:</h6>
-                <input type="text" class="form-control" name="" value="">
+                <input type="text" class="form-control" name="groupname" id="groupname" value="">
                 <h6>Description:</h6>
-                <textarea class="form-control" name="name"></textarea>
+                <textarea class="form-control" style="display: none" id="admin" name="admin"><%=uname%></textarea>
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <input type="hidden" name="flag" value="<%=uname%>">
+                 <button type="submit" class="form-control"  >
+                    <div class="btntxt">submit</div>
+                 </button>
               </form>
-            </div>-->
+            </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-7 col-xl-5">
@@ -122,50 +174,6 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-    var x = window.matchMedia("(max-width: 767.98px)");
-    var y = window.matchMedia("(max-width: 1199)");
-      function openchat() {
-        if(x.matches){
-          document.getElementsByClassName('contacts-panel')[0].style.display = "none";
-          document.getElementsByClassName('chat-panel')[0].style.display = "flex";
-          document.getElementById('back-arrow').style.display = "inline-block";
-          document.getElementById('burg').style.display = "inline-block";
-        }
-      }
-      window.addEventListener("resize", () =>{
-        if(window.innerWidth > 765){
-          if(document.getElementsByClassName('contacts-panel')[0].style.display === "none")
-            {document.getElementsByClassName('contacts-panel')[0].style.display = "flex";}
-            if(document.getElementsByClassName('chat-panel')[0].style.display === "none")
-              {document.getElementsByClassName('chat-panel')[0].style.display = "flex";}
-          document.getElementById('back-arrow').style.display = "none";
-          document.getElementById('burg').style.display = "none";
-        }
-      });
-      function opencontacts(){
-        if(x.matches){
-          document.getElementsByClassName('contacts-panel')[0].style.display = "flex";
-          document.getElementsByClassName('chat-panel')[0].style.display = "none";
-        }
-      }
-      function openmembers(){
-          if(x.matches){
-            document.getElementsByClassName('members-panel')[0].style.display = "flex";
-            document.getElementsByClassName('chat-panel')[0].style.display = "none";
-          }
-      }
-      var links = document.getElementsByClassName("link");
-      for (var i = 0; i < links.length; i++) {
-          links[i].addEventListener("click", function() {
-          var current = document.getElementsByClassName("active");
-          if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-          }
-          this.className += " active";
-        });
-      }
 
-  </script>
     </body>
 </html>

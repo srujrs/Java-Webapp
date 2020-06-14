@@ -57,7 +57,7 @@
                 <div class="heading" align="center">VChat</div>
                 <div class="formheading">Welcome!</div>
                 <p>Please enter credentials for signing up.</p>
-                <form name="signupform" action="signUp" method="post">
+                <form name="signupform" action="SignUp" method="post">
                         <div class="tooltip">
                                 <input type="text" id="username" name="username" required placeholder="Username" onblur="checkusername();" onclick="resetunerror();">
                                 <span class="tooltiptext">Username must contain at least 6characters.</span>
