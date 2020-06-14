@@ -1,8 +1,3 @@
-<%-- 
-    Document   : welcomepage
-    Created on : 13-Jun-2020, 5:22:15 PM
-    Author     : Akshay Mali
---%>
 <%String uname=(String)session.getAttribute("username"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -89,7 +84,7 @@
               </div>
               <div class="message-box">
                 <input style="display: none" type="text" id="u" value="<%=uname%>">
-                <input type="text" name="message" value="" placeholder="Type message" id="h">
+                <input type="text" name="message" value="" placeholder="Type message" id="">
                 <i class="material-icons" style="">sentiment_satisfied_alt</i>
                 <i class="material-icons" style="">attach_file</i>
                 <i class="material-icons" style="" onclick="addText()">send</i>

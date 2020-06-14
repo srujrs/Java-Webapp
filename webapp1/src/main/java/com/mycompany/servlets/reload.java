@@ -33,7 +33,7 @@ public class reload extends HttpServlet {
         // Database name to access 
         String dbName = "newdb"; 
         String dbUsername = "root"; 
-        String dbPassword = "Akshay@123"; 
+        String dbPassword = "sruj 9482941506"; 
   
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword);
