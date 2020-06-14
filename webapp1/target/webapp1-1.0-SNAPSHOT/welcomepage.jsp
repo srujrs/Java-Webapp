@@ -1,3 +1,8 @@
+<%-- 
+    Document   : welcomepage
+    Created on : 13-Jun-2020, 5:22:15 PM
+    Author     : Akshay Mali
+--%>
 <%String uname=(String)session.getAttribute("username"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,10 +37,10 @@
               <img src="Style/Tom.jpg" alt="" class="profile-image">
               <h6 class="profile-name"><%=uname%></h6>
               <ul class="list-unstyled" style="margin:20px auto;">
-                <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">chat</i></li>
-                <li class="text-center m-2"><i class="material-icons" style="font-size: 24px;margin:13px;">group_add</i></li>
-                <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">folder</i></li>
-                <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">settings</i></li>
+                <li class="link active"><i class="material-icons" style="font-size: 20px;margin:15px;">chat</i></li>
+                <li class="link" onclick="showGroups()"><i class="material-icons" style="font-size: 24px;margin:13px;">group_add</i></li>
+                <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">folder</i></li>
+                <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">settings</i></li>
               </ul>
           </div>
         </div>
@@ -48,34 +53,32 @@
               <input type="text" name="contacts" value="" placeholder="Search">
               <i class="material-icons" style="color: gray;vertical-align: middle;">search</i>
             </div>
-              <div class="friend-box">
-                <div class="group-drawer" onclick="openchat()">
-                  <div class="profile-image">A</div>
-                  <div class="info">
-                    <h5 class="m-0">Avengers</h5>
-                    <p>There was an idea to bring together a group of remarkable people</p>
-                  </div>
-                </div>
-                <div class="group-drawer" onclick="openchat()">
-                  <div class="profile-image">JL</div>
-                  <div class="info">
-                    <h5 class="m-0">Justice League</h5>
-                    <p>Detective Comics Extended Universe</p>
-                  </div>
-                </div>
+              <div id="groups" class="friend-box">
+                
               </div>
+<!--              <div class="create-group">
+              <div class="heading">Create New Group</div>
+              <form class="new-group-form" action="" method="post">
+                <h6>Name:</h6>
+                <input type="text" class="form-control" name="" value="">
+                <h6>Description:</h6>
+                <textarea class="form-control" name="name"></textarea>
+              </form>
+            </div>-->
           </div>
         </div>
         <div class="col-md-6 col-lg-7 col-xl-5">
           <div class="chat-panel">
               <!-- <h4 class="font-weight-bold mb-1">Chat</h4>
               <div class="underline"></div> -->
-              <div class="panel-detail">
-                <div class="profile-image">A</div>
+              <div id="group-info" class="panel-detail">
+                <i id="back-arrow" class="material-icons nevigation" onclick="opencontacts()">arrow_back</i>
+                <div class="profile-image"></div>
                 <div class="info" style="text-align:left;">
-                  <h5 class="m-0">Avengers</h5>
-                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">There ws an idea to bring together a group of remarkable people</p>
+                  <h5 class="m-0"></h5>
+                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"></p>
                 </div>
+                <i id="burg" class="material-icons nevigation" onclick="openmembers()">short_text</i>
               </div>
               <div style="flex-grow: 1;overflow-y: scroll;" id="list">
                 <p id="result"></p>
@@ -93,6 +96,7 @@
         </div>
         <div class="col-lg-0 col-xl-2 members-panel">
           <div class="panel-detail">
+              <i id="back-arrow-chat" class="material-icons nevigation" onclick="openchat()">arrow_back</i>
             <h4 class="m-0 font-weight-bold">Members</h4>
           </div>
           <div class="members-box pt-2">
@@ -120,18 +124,48 @@
     </div>
     <script type="text/javascript">
     var x = window.matchMedia("(max-width: 767.98px)");
+    var y = window.matchMedia("(max-width: 1199)");
       function openchat() {
         if(x.matches){
           document.getElementsByClassName('contacts-panel')[0].style.display = "none";
           document.getElementsByClassName('chat-panel')[0].style.display = "flex";
+          document.getElementById('back-arrow').style.display = "inline-block";
+          document.getElementById('burg').style.display = "inline-block";
         }
       }
       window.addEventListener("resize", () =>{
-        if(window.innerWidth > 760 && window.innerWidth < 800 ){
+        if(window.innerWidth > 765){
           if(document.getElementsByClassName('contacts-panel')[0].style.display === "none")
             {document.getElementsByClassName('contacts-panel')[0].style.display = "flex";}
+            if(document.getElementsByClassName('chat-panel')[0].style.display === "none")
+              {document.getElementsByClassName('chat-panel')[0].style.display = "flex";}
+          document.getElementById('back-arrow').style.display = "none";
+          document.getElementById('burg').style.display = "none";
         }
       });
+      function opencontacts(){
+        if(x.matches){
+          document.getElementsByClassName('contacts-panel')[0].style.display = "flex";
+          document.getElementsByClassName('chat-panel')[0].style.display = "none";
+        }
+      }
+      function openmembers(){
+          if(x.matches){
+            document.getElementsByClassName('members-panel')[0].style.display = "flex";
+            document.getElementsByClassName('chat-panel')[0].style.display = "none";
+          }
+      }
+      var links = document.getElementsByClassName("link");
+      for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          if (current.length > 0) {
+            current[0].className = current[0].className.replace(" active", "");
+          }
+          this.className += " active";
+        });
+      }
+
   </script>
     </body>
 </html>

@@ -20,7 +20,8 @@ public class chatstore extends HttpServlet {
         
             String uname=request.getParameter("uname");
             String msg=request.getParameter("msg");
-            chat ID = new chat(uname,msg);
+            String id=request.getParameter("id");
+            chat ID = new chat(uname,msg,id);
   
         }
         catch(Exception e){

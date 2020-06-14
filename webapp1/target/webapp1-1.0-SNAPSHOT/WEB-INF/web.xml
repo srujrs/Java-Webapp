@@ -6,15 +6,19 @@
     </servlet>
     <servlet>
         <servlet-name>signUp</servlet-name>
-        <servlet-class>com.mycompany.servlets.signUp</servlet-class>
+        <servlet-class>com.mycompany.servlets.SignUp</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>chatstore</servlet-name>
         <servlet-class>com.mycompany.servlets.chatstore</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>reload</servlet-name>
         <servlet-class>com.mycompany.servlets.reload</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>groupList</servlet-name>
+        <servlet-class>com.mycompany.servlets.groupList</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -32,8 +36,10 @@
         <servlet-name>reload</servlet-name>
         <url-pattern>/reload</url-pattern>
     </servlet-mapping>
- 
-  
+    <servlet-mapping>
+        <servlet-name>groupList</servlet-name>
+        <url-pattern>/groupList</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

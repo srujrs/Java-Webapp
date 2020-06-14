@@ -30,8 +30,10 @@ public class reload extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             Connection con = DatabaseConnection.initializeDatabase();
 
+            Enumeration<String> groupid = request.getHeaders("groupid");
+            String id = groupid.nextElement();
             Statement stmt = con.createStatement();
-            ResultSet rst = stmt.executeQuery("SELECT * FROM chat");
+            ResultSet rst = stmt.executeQuery("SELECT * FROM group"+ id);
            
             while(rst.next()) {
                String uname=rst.getString(2);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 @WebServlet("/newsignUp")
-public class signUp extends HttpServlet {
+public class SignUp extends HttpServlet {
 
         @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -26,7 +26,7 @@ public class signUp extends HttpServlet {
                 pageRedirect = "index.jsp";
             } 
             catch (ClassNotFoundException ex) {
-                Logger.getLogger(signUp.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             response.sendRedirect(pageRedirect);
