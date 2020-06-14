@@ -1,5 +1,6 @@
 package com.mycompany.data;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,14 +15,14 @@ public class loginDetails {
             Connection con = DatabaseConnection.initializeDatabase();
 
             Statement stmt = con.createStatement();
-            ResultSet userDetails = stmt.executeQuery("SELECT hashId FROM logindetailsuser");
+            ResultSet userDetails = stmt.executeQuery("SELECT * FROM logindetailsuser");
 
             while(userDetails.next()) {
-                String salted = _username+"chatWith"+_password+"Me";
-                String md5hash = md5.getMd5(salted);
-                if(userDetails.getString(1).equals(md5hash)) {
-                    this.setUserFound(true);
-                    break;
+                if(userDetails.getString(1).equals(_username)) {
+                    if(userDetails.getString(2).equals(_password)) {
+                        this.setUserFound(true);
+                        break;
+                    }
                 }
             }
 

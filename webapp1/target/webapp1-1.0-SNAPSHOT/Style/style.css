@@ -69,57 +69,22 @@ input[type=text], input[type=password] {
         background-color: inherit;
 }
 
-.tooltip {
-  position: relative;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 55%;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: 120%;
-  left: 55%;
-  margin-left: -60px;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent black transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
 .buttoncontainer {
         display: flex;
         justify-content: space-around;
 }
 
-.formcontainer button, .dummybutton {
+.formcontainer button {
         display: block;
         margin: 40px auto;
         margin-top: 30px;
-	width: 184px;
-	text-align: center;
+        width: 184px;
         border-radius: 5px;
         background-color: rgb(0,128,255);
         border: 0;
 }
 
-.formcontainer button:hover, .dummybutton:hover {
+.formcontainer button:hover {
         background-color: rgba(0,128,255,0.8);
 }
 
@@ -127,30 +92,6 @@ input[type=text], input[type=password] {
         font-size: 20pt;
         color: #ffffff;
         margin: 10px;
-}
-
-a {
-	text-decoration: none;
-}
-
-#unerror {
-	color: red;
-	text-align: center;
-}
-
-#passerror {
-	color: red;
-	text-align: center;
-}
-
-#emailerror {
-        color: red;
-        text-align: center;
-}
-
-#cpasserror {
-        color: red;
-        text-align: center;
 }
 
 .foot {
