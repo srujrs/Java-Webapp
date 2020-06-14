@@ -29,14 +29,7 @@ public class reload extends HttpServlet {
         try
         {
             response.setContentType("text/html;charset=UTF-8");
-        String dbURL = "jdbc:mysql://localhost:3306/"; 
-        // Database name to access 
-        String dbName = "newdb"; 
-        String dbUsername = "root"; 
-        String dbPassword = "sruj 9482941506"; 
-  
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword);
+            Connection con = DatabaseConnection.initializeDatabase();
 
             Statement stmt = con.createStatement();
             ResultSet rst = stmt.executeQuery("SELECT * FROM chat");
