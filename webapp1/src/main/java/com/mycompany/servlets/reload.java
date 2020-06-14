@@ -3,7 +3,6 @@ package com.mycompany.servlets;
 
 
 import com.mycompany.data.DatabaseConnection;
-import com.mycompany.data.chatreload;
 import java.io.IOException;
 
 import java.io.PrintWriter;

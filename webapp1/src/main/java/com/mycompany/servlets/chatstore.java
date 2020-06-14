@@ -18,9 +18,9 @@ public class chatstore extends HttpServlet {
         {
             response.setContentType("text/html;charset=UTF-8");
         
-        String uname=request.getParameter("uname");
-        String msg=request.getParameter("msg");
-        chat ID=new chat(uname,msg);
+            String uname=request.getParameter("uname");
+            String msg=request.getParameter("msg");
+            chat ID = new chat(uname,msg);
   
         }
         catch(Exception e){

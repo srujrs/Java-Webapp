@@ -84,7 +84,7 @@
               </div>
               <div class="message-box">
                 <input style="display: none" type="text" id="u" value="<%=uname%>">
-                <input type="text" name="message" value="" placeholder="Type message" id="">
+                <input type="text" name="message" value="" placeholder="Type message" id="h">
                 <i class="material-icons" style="">sentiment_satisfied_alt</i>
                 <i class="material-icons" style="">attach_file</i>
                 <i class="material-icons" style="" onclick="addText()">send</i>

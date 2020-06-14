@@ -10,13 +10,13 @@ import javax.servlet.ServletException;
 public class chat {
     private boolean userFound;
     private boolean adminFound;
-    public chat(String _username,String _password) throws SQLException, ClassNotFoundException, ServletException {
+    public chat(String _username,String _message) throws SQLException, ClassNotFoundException, ServletException {
         try {
             Connection con = DatabaseConnection.initializeDatabase();
-
             Statement stmt = con.createStatement();
-            String uname=_username;
-            String msg=_password;
+            
+            String uname = _username;
+            String msg = _message;
             Date date=new Date();
             SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
             SimpleDateFormat sdf2=new SimpleDateFormat("HH:mm");
@@ -24,13 +24,10 @@ public class chat {
             String emttime=sdf2.format(date);
            // INSERT INTO 'newdb'.'chat' ('username', 'message', 'date', 'time') VALUES ('wer', 'asd', 'das', 'ads');
     //        "INSERT INTO 'time_entry'(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
-            String str="INSERT INTO chat ('username', 'message', 'date', 'time') VALUES ('"+uname+"','"+msg+"','"+emtDate+"','"+emttime+"')";
+            String str="INSERT INTO chat (username, message, date, time) VALUES ('"+uname+"','"+msg+"','"+emtDate+"','"+emttime+"')";
 
 
             int rows = stmt.executeUpdate(str);
-            System.out.println("Rows impacted : " + rows );
-
-            con.close();
         
         }
         catch (SQLException | ClassNotFoundException ex) {
