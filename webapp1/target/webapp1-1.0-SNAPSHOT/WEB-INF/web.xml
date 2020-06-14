@@ -5,8 +5,8 @@
         <servlet-class>com.mycompany.servlets.login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>signUp</servlet-name>
-        <servlet-class>com.mycompany.servlets.signUp</servlet-class>
+        <servlet-name>SignUp</servlet-name>
+        <servlet-class>com.mycompany.servlets.SignUp</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>chatstore</servlet-name>
@@ -21,8 +21,8 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>signUp</servlet-name>
-        <url-pattern>/signUp</url-pattern>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>chatstore</servlet-name>

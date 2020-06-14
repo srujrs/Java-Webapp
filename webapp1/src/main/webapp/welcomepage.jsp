@@ -8,6 +8,7 @@
             }
         
   %>
+   
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,9 +20,9 @@
           rel="stylesheet">
         <script type="text/javascript" src="check.js"></script>
         <link rel="stylesheet" href="Style/main.css">
-        <script>
+       <script>
             setInterval(reloaddata,3000);
-        </script>
+    </script>
     </head>
     <body>
       
@@ -36,6 +37,7 @@
                 <li class="text-center m-2"><i class="material-icons" style="font-size: 24px;margin:13px;">group_add</i></li>
                 <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">folder</i></li>
                 <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;">settings</i></li>
+                <li class="text-center m-2"><i class="material-icons" style="font-size: 20px;margin:15px;"><a href="logout.jsp" >logout</a></i></li>
               </ul>
           </div>
         </div>
@@ -74,7 +76,7 @@
                 <div class="profile-image">A</div>
                 <div class="info" style="text-align:left;">
                   <h5 class="m-0">Avengers</h5>
-                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">There ws an idea to bring together a group of remarkable people</p>
+                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">There was an idea to bring together a group of remarkable people</p>
                 </div>
               </div>
               <div style="flex-grow: 1;overflow-y: scroll;" id="list">
@@ -84,7 +86,7 @@
               </div>
               <div class="message-box">
                 <input style="display: none" type="text" id="u" value="<%=uname%>">
-                <input type="text" name="message" value="" placeholder="Type message" id="">
+                <input type="text" name="message" value="" placeholder="Type message" id="h">
                 <i class="material-icons" style="">sentiment_satisfied_alt</i>
                 <i class="material-icons" style="">attach_file</i>
                 <i class="material-icons" style="" onclick="addText()">send</i>

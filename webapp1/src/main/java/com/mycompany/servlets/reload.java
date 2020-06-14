@@ -3,7 +3,7 @@ package com.mycompany.servlets;
 
 
 import com.mycompany.data.DatabaseConnection;
-import com.mycompany.data.chatreload;
+
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Enumeration;
+
 
 
 
@@ -31,9 +31,9 @@ public class reload extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
         String dbURL = "jdbc:mysql://localhost:3306/"; 
         // Database name to access 
-        String dbName = "newdb"; 
+        String dbName = "newdb1"; 
         String dbUsername = "root"; 
-        String dbPassword = "sruj 9482941506"; 
+        String dbPassword = "Yash1234*"; 
   
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword);
@@ -47,20 +47,19 @@ public class reload extends HttpServlet {
                String date=rst.getString(4);
                String time=rst.getString(5);
                PrintWriter out=response.getWriter();
-               Enumeration<String> username = request.getHeaders("username");
-               String user = username.nextElement();
-               if(user.equals(uname)){
-                    out.println("<div class=\"message right\">");
-                    out.println("<p class='m-0'>"+ msg +"</p>");
-                    out.println("<p style='font-size:12px;color:#999;margin:0;' align='right'>"+ time +"</p>");
-                    out.println("</div>");
-               }else{
+               
+//                    out.println("<div class=\"message right\">");
+//                    out.println("<p class='m-0'>"+ msg +"</p>");
+//                    out.println("<p style='font-size:12px;color:#999;margin:0;' align='right'>"+ time +"</p>");
+//                    out.println("</div>");
+
+              
                     out.println("<div class='message left'>");
                     out.println("<b style='font-size:14px;'>"+ uname +"</b>");
                     out.println("<p class='m-0'>"+ msg +"</p>");
                     out.println("<p style='font-size:12px;color:#999;margin:0;' align='right'>"+ time +"</p>");
                     out.println("</div>");
-               }
+               
                
             }
             con.close();

@@ -24,7 +24,7 @@ public class chat {
             String emttime=sdf2.format(date);
            // INSERT INTO 'newdb'.'chat' ('username', 'message', 'date', 'time') VALUES ('wer', 'asd', 'das', 'ads');
     //        "INSERT INTO 'time_entry'(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
-            String str="INSERT INTO chat ('username', 'message', 'date', 'time') VALUES ('"+uname+"','"+msg+"','"+emtDate+"','"+emttime+"')";
+            String str="INSERT INTO chat (username, message, date, time) VALUES ('"+uname+"','"+msg+"','"+emtDate+"','"+emttime+"')";
 
 
             int rows = stmt.executeUpdate(str);

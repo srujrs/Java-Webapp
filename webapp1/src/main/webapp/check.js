@@ -18,22 +18,23 @@ function addText()
     {// code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xmlhttp.open("POST", "chatstore?uname=" + username + "&msg=" + msg, true);
 
+    xmlhttp.open("POST", "chatstore?uname=" + username + "&msg=" + msg, true);
+    alert("open hone ke pahele");
     xmlhttp.onreadystatechange = function()
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
-            
+             
+             alert(username+msg);
             document.getElementById("result").innerHTML = 'sent';
             document.getElementById("result").innerHTML = '';
         }
-    };
+    }
     xmlhttp.send(null);
 }
 function reloaddata()
 {
-    var username = document.getElementById('u').value;
     var xmlhttp;
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -46,7 +47,6 @@ function reloaddata()
 
 
     xmlhttp.open("POST", "reload", true);
-    xmlhttp.setRequestHeader("username",  username );
 
     xmlhttp.onreadystatechange = function()
     {
@@ -57,6 +57,6 @@ function reloaddata()
             olist = document.getElementById('list'); //everything in id list
             olist.scrollTop = olist.scrollHeight;
         }
-    };
+    }
     xmlhttp.send(null);
 }
