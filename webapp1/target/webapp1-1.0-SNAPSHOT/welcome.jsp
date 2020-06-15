@@ -13,6 +13,10 @@
     <head>
             <title>Welcome Admin</title>
             <link rel="stylesheet" href="Style/style.css">
+            <script type="text/javascript" src="check.js"></script>
+            <script>
+                setInterval(printtable,1000);
+            </script>
     </head>
     <body>
             <div class="colorcontainer"></div>
@@ -21,27 +25,8 @@
                         <div class="formheading">Welcome <%=uname%>!</div>
                         <p>Delete any member you want to delete.</p>
                         <form action="index.jsp">
-                                <table>
-                                        <tr>
-                                                <th>User ID</th>
-                                                <th>Email</th>
-                                                <th>Delete User</th>
-                                        </tr>
-                                        <tr>
-                                                <td>User1</td>
-                                                <td>user1@gmail.com</td>
-                                                <td><div class="deletebutton" onclick="deletefunnction();"><div class="deletebtntxt">Delete</div></div></td>
-                                        </tr>
-                                        <tr>
-                                                <td>User2</td>
-                                                <td>user2@gmail.com</td>
-                                                <td><div class="deletebutton" onclick="deletefunnction();"><div class="deletebtntxt">Delete</div></div></td>
-                                        </tr>
-                                        <tr>
-                                                <td>User3</td>
-                                                <td>user3@gmail.com</td>
-                                                <td><div class="deletebutton" onclick="deletefunnction();"><div class="deletebtntxt">Delete</div></div></td>
-                                        </tr>
+                                <table id="tablerows">
+                                        
                                 </table>
                                 <div class="buttoncontainer">
                                         <button type="submit" class="signinbutton" value="Logout">
@@ -51,5 +36,6 @@
                         </form>
                 </div>
                 <div class="foot">Welcome to the official VChat web-client.</div>
+                
     </body>
 </html>

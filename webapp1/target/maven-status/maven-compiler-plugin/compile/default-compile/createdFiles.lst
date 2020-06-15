@@ -5,6 +5,7 @@ com\mycompany\servlets\SignUp.class
 com\mycompany\servlets\chatstore.class
 com\mycompany\data\formgroup.class
 com\mycompany\servlets\displayFollowingGroups.class
+com\mycompany\servlets\admintable.class
 com\mycompany\servlets\groupList.class
 com\mycompany\data\chat.class
 com\mycompany\data\loginDetails.class
@@ -12,3 +13,4 @@ com\mycompany\data\signUpDetails.class
 com\mycompany\servlets\newgroup.class
 com\mycompany\data\DatabaseConnection.class
 com\mycompany\data\md5.class
+com\mycompany\servlets\deletetable.class
