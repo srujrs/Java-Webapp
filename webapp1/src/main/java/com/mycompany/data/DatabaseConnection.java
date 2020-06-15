@@ -13,9 +13,9 @@ public class DatabaseConnection {
         
         String dbURL = "jdbc:mysql://localhost:3306/"; 
         // Database name to access 
-        String dbName = "newdb1"; 
+        String dbName = "newdb"; 
         String dbUsername = "root"; 
-        String dbPassword = "Yash1234*"; 
+        String dbPassword = "Akshay@123"; 
   
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 

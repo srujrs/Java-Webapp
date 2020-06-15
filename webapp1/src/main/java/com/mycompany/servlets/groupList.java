@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,8 @@ public class groupList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try
         {
+            Enumeration<String> username = request.getHeaders("username");
+            String user = username.nextElement();
             response.setContentType("text/html;charset=UTF-8");
             Connection con = DatabaseConnection.initializeDatabase();
             Statement stmt = con.createStatement();
@@ -46,6 +49,24 @@ public class groupList extends HttpServlet {
                out.println("</div>");
             }
             con.close();
+            out.println("<div class=\"floating-btn\">");
+            out.println(" <i id=\"addgroup\" class=\"material-icons\" onclick=\"document.getElementById('create-group').style.display = 'flex';\">add</i>");
+            out.println("</div>");
+            out.println("<div id=\"create-group\">");
+            out.println("<div class=\"heading\">Create New Group</div>");
+            out.println("<form class=\"new-group-form\" method=\"post\" action=\"newgroup\">");
+            out.println("<h6>Name:</h6>");
+            out.println("<input type=\"text\" class=\"form-control\" name=\"groupname\" id=\"groupname\" value=\"\">");
+            out.println("<h6>Description:</h6>");
+            out.println("<textarea class=\"form-control\" style=\"display: none\" id=\"admin\" name=\"admin\">"+ user +"</textarea>");
+            out.println("<textarea class=\"form-control\" id=\"description\" name=\"description\"></textarea>");
+            out.println("<input type=\"hidden\" name=\"flag\" value=\""+ user +"\">");
+            out.println("<button type=\"submit\" class=\"form-control\" >");
+            out.println("<div class=\"btntxt\">submit</div>");
+            out.println("</button>");
+            out.println("</form>");
+            out.println("</div>");
+//          <div id="admin" name="admin" style="display: none">"+ user +"</div>
         }
         catch(Exception e){
             e.printStackTrace();

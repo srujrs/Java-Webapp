@@ -16,7 +16,14 @@
 <html>
     <script type="text/javascript">
     var x = window.matchMedia("(max-width: 767.98px)");
-    var y = window.matchMedia("(max-width: 1199)");
+    function changeactive(event) {
+        console.log(event);
+        var current = document.getElementsByClassName("active");
+        if (current.length > 0) {
+          current[0].className = current[0].className.replace(" active", "");
+        }
+        event.target.className += " active";
+    }
       function openchat() {
         if(x.matches){
           document.getElementsByClassName('contacts-panel')[0].style.display = "none";
@@ -47,17 +54,8 @@
             document.getElementsByClassName('chat-panel')[0].style.display = "none";
           }
       }
-      var links = document.getElementsByClassName("link");
-      for (var i = 0; i < links.length; i++) {
-          links[i].addEventListener("click", function() {
-          var current = document.getElementsByClassName("active");
-          if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-          }
-          this.className += " active";
-        });
-      }
-
+      
+      
   </script>
     <head>
         <meta charset="utf-8">
@@ -82,10 +80,9 @@
               <img src="Style/Tom.jpg" alt="" class="profile-image">
               <h6 class="profile-name"><%=uname%></h6>
               <ul class="list-unstyled" style="margin:20px auto;">
-                <li class="link active"><i class="material-icons" style="font-size: 20px;margin:15px;">chat</i></li>
-                <li class="link" onclick="showGroups()"><i class="material-icons" style="font-size: 24px;margin:13px;">group_add</i></li>
-                <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">folder</i></li>
-                <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;">settings</i></li>
+                <li class="link active" onclick="changeactive(event);showFollowingGroups();"><i class="material-icons" style="font-size: 20px;margin:15px;pointer-events: none;">chat</i></li>
+                <li class="link" onclick="showGroups();changeactive(event);"><i class="material-icons" style="font-size: 24px;margin:13px;pointer-events: none;">group_add</i></li>
+                <li class="link" onclick="changeactive(event);"><i class="material-icons" style="font-size: 20px;margin:15px;pointer-events: none;">settings</i></li>
                 <li class="link"><i class="material-icons" style="font-size: 20px;margin:15px;"><a href="logout.jsp">logouts</a></i></li>
               </ul>
           </div>
@@ -93,36 +90,19 @@
         <div class="col-md-6 col-lg-4">
           <div class="contacts-panel">
             <div class="panel-detail">
-              <h4 class="m-0 font-weight-bold">Following</h4>
+              <h4 id="title" class="m-0 font-weight-bold">Following</h4>
             </div>
-            <div class="search-box">
+<!--            <div class="search-box">
               <input type="text" name="contacts" value="" placeholder="Search">
               <i class="material-icons" style="color: gray;vertical-align: middle;">search</i>
-            </div>
-              <div id="groups" class="friend-box">
-                
-              </div>
-              <div class="create-group">
-              <div class="heading">Create New Group</div>
-              <form class="new-group-form" method="post" action="newgroup">
-<!--                //<div id="admin" name="admin" style="display: none"><%=uname%></div>-->
-                <h6>Name:</h6>
-                <input type="text" class="form-control" name="groupname" id="groupname" value="">
-                <h6>Description:</h6>
-                <textarea class="form-control" style="display: none" id="admin" name="admin"><%=uname%></textarea>
-                <textarea class="form-control" id="description" name="description"></textarea>
-                <input type="hidden" name="flag" value="<%=uname%>">
-                 <button type="submit" class="form-control"  >
-                    <div class="btntxt">submit</div>
-                 </button>
-              </form>
+            </div>-->
+            <div id="groups" class="friend-box">
+
             </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-7 col-xl-5">
           <div class="chat-panel">
-              <!-- <h4 class="font-weight-bold mb-1">Chat</h4>
-              <div class="underline"></div> -->
               <div id="group-info" class="panel-detail">
                 <i id="back-arrow" class="material-icons nevigation" onclick="opencontacts()">arrow_back</i>
                 <div class="profile-image"></div>
@@ -147,28 +127,13 @@
           </div>
         </div>
         <div class="col-lg-0 col-xl-2 members-panel">
-          <div class="panel-detail">
-              <i id="back-arrow-chat" class="material-icons nevigation" onclick="openchat()">arrow_back</i>
-            <h4 class="m-0 font-weight-bold">Members</h4>
-          </div>
-          <div class="members-box pt-2">
-            <div class="member d-flex align-items-center">
-              <div class="profile-image small">T</div>
-              <h6 class="m-0 text-secondary">Tony Stark</h6>
+            <div class="panel-detail">
+                <i id="back-arrow-chat" class="material-icons nevigation" onclick="openchat()">arrow_back</i>
+                <h4 class="m-0 font-weight-bold">Members</h4>
             </div>
-            <div class="member d-flex align-items-center">
-              <div class="profile-image small">S</div>
-              <h6 class="m-0 text-secondary">Steve Rogers</h6>
+            <div id="members" class="members-box pt-2">
+
             </div>
-            <div class="member d-flex align-items-center">
-              <div class="profile-image small">T</div>
-              <h6 class="m-0 text-secondary">Thor</h6>
-            </div>
-            <div class="member d-flex align-items-center">
-              <div class="profile-image small">N</div>
-              <h6 class="m-0 text-secondary">Natasha Romanoof</h6>
-            </div>
-          </div>
         </div>
         </div>
         </div>

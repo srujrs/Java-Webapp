@@ -41,6 +41,7 @@ function reloaddata()
     var username = document.getElementById('u').value;
     if(selectedGroup === null || selectedGroup === ""){
         console.log("No group selected");
+        document.getElementById("content").innerHTML = '<p style="margin:200px auto;">Please select a group to start messaging.</p>'
     }else{
         var xmlhttp;
         if (window.XMLHttpRequest)
@@ -61,16 +62,18 @@ function reloaddata()
             {
 
                 document.getElementById("content").innerHTML = xmlhttp.responseText;
-    //            olist = document.getElementById('list'); //everything in id list
-    //            olist.scrollTop = olist.scrollHeight;
+                olist = document.getElementById('list'); //everything in id list
+                olist.scrollTop = olist.scrollHeight;
             }
         };
         xmlhttp.send(null);
+        showGroupMembers(selectedGroup);
     }
 
 }
 function showGroups(){
     var username = document.getElementById('u').value;
+    document.getElementById('title').innerHTML = "Groups";
     var xmlhttp;
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -121,6 +124,7 @@ function displayChat(event){
         }
     };
     xmlhttp.send(null);
+    showGroupMembers(groupid);
 }
 function newgroup()
 {
@@ -158,4 +162,51 @@ function newgroup()
         };
         xmlhttp.send(null);
     }
+}
+function showFollowingGroups(){
+    var username = document.getElementById('u').value;
+    document.getElementById('title').innerHTML = "Following";
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("POST", "displayFollowingGroups", true);
+    xmlhttp.setRequestHeader("username",  username );
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+        {
+            document.getElementById("groups").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.send(null);
+}
+function showGroupMembers(id){
+    var username = document.getElementById('u').value;
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("POST", "getMembers", true);
+    xmlhttp.setRequestHeader("username",  username );
+    xmlhttp.setRequestHeader("groupid",  id );
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+        {
+            document.getElementById("members").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.send(null);
 }

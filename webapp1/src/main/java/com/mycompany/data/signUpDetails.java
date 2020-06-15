@@ -16,7 +16,7 @@ public class signUpDetails {
             String salted = _username+"chatWith"+_password+"Me";
             String md5hash = md5.getMd5(salted);
             
-            String query = "INSERT INTO logindetailsuser( hashId, username, emailId, password)" +
+            String query = "INSERT INTO logindetailsuser( hashId, userId, emailId, password)" +
                    "VALUES ('" + md5hash + "'," +
                             "'" + _username + "'," +
                             "'" + _email + "'," +

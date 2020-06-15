@@ -42,7 +42,7 @@ body{
   line-height: 36px;
 }
 .profile-name{
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   text-align: center;
@@ -57,10 +57,13 @@ li{
   height: 50px;
   width: 50px;
   background-color: #0a68ff;
-  margin: 20px 10px;
+  margin: 20px 5px;
   text-align: center;
   color: #eee;
   border-radius: 10px;
+}
+li a{
+    color: inherit;
 }
 .contacts-panel{
   height: 90vh;
@@ -128,20 +131,42 @@ li{
 .friend-box{
   width: 100%;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  margin:10px 0;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-.create-group{
+#addgroup{
+  height: 50px;
+  width: 50px;
+  background-color: #0a68ff;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: #fff;
+  z-index: 5;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 0px 10px 0px rgb(0,0,0);
+}
+#create-group{
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  display:none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
 }
 .heading{
   height: 50px;
