@@ -25,13 +25,18 @@ public class login extends HttpServlet {
                redirectPage = "welcomepage.jsp";
                 HttpSession session=request.getSession();
                 session.setAttribute("username",_username);
+                session.setAttribute("error", "");
             }
             else if(ld.getAdminFound()) {
                 HttpSession session=request.getSession();
                 session.setAttribute("username",_username);
                 redirectPage = "welcome.jsp";
             }
-            else redirectPage = "index.jsp";
+            else{
+                HttpSession session=request.getSession();
+                session.setAttribute("error", "Invalid Credentials");
+                redirectPage = "index.jsp";
+            }
             
             response.sendRedirect(redirectPage);
             

@@ -129,7 +129,7 @@
         <div class="col-lg-0 col-xl-2 members-panel">
             <div class="panel-detail">
                 <i id="back-arrow-chat" class="material-icons nevigation" onclick="openchat()">arrow_back</i>
-                <h4 class="m-0 font-weight-bold">Members</h4>
+                <h4 class="m-0 font-weight-bold">Active Members</h4>
             </div>
             <div id="members" class="members-box pt-2">
 

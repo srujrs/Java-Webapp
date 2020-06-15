@@ -37,6 +37,7 @@
         <div class="formcontainer">
                 <div class="heading" align="center">VChat</div>
                 <div class="formheading">Welcome!</div>
+                <div class="error" align="center">${error}</div>
                 <p>Please enter username and password.</p>
                 <form name="signupform" action="login" method="post">
                         <div class="tooltip">

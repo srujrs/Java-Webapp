@@ -1,14 +1,14 @@
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\getMembers.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\SignUp.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\formgroup.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\displayFollowingGroups.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\loginDetails.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\chat.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\DatabaseConnection.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\groupList.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\chatstore.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\login.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\reload.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\md5.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\newgroup.java
-C:\Users\Akshay Mali\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\signUpDetails.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\formgroup.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\displayFollowingGroups.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\login.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\SignUp.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\signUpDetails.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\chatstore.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\getMembers.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\md5.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\groupList.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\newgroup.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\servlets\reload.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\loginDetails.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\DatabaseConnection.java
+C:\Users\Srujan\Documents\GitHub\Java-Webapp\webapp1\src\main\java\com\mycompany\data\chat.java
